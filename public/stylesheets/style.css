@@ -1,0 +1,74 @@
+body {
+	background: black;
+}
+
+#label {
+	background: #fff8ed;
+	text-align: center;
+	color: #424242;
+	margin: 0;
+	padding: 20px;
+}
+
+.masonryholder {
+	width: auto;
+	column-count: 4;
+	column-gap: 20px;
+	margin-top: 20px;
+}
+
+.masonryblocks {
+	display: inline-block;
+	background: #ebeded;
+	padding: 0px;
+	margin: 0 0 15px;
+	width: auto;
+	box-sizing: border-box;
+}
+
+.tile-img {
+	border-radius: 5px;
+}
+
+@media screen and (max-width: 768px){
+	.masonryholder {
+		column-count:1;
+	}
+}
+
+@media screen and (min-width: 769px){
+	.masonryholder {
+		column-count:2;
+	}
+}
+
+@media screen and (min-width: 1080px){
+	.masonryholder {
+		column-count:3;
+	}
+}
+
+@media screen and (min-width: 1200x){
+	.masonryholder {
+		column-count:4;
+	}
+}
+
+.row .col {
+	margin: 1rem;
+}
+
+#add-header {
+	color: white;
+	text-align: center;
+}
+
+#add-form {
+	width: 30%;
+	margin: 25px auto;
+	align-content: center;
+}
+
+#add-button {
+	margin-top: 1rem;
+}
