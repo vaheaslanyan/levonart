@@ -8,7 +8,7 @@ var bodyParser = require("body-parser");
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-mongoose.connect("mongodb://localhost/yelp_camp", {
+mongoose.connect("mongodb://localhost/levon_art", {
 	useNewUrlParser: true,
 	useCreateIndex: true
 }).then(() => {
@@ -63,7 +63,14 @@ var art = [
 
 
 app.get("/", function(req, res){
-	res.render("index", {art: art});
+	Art.find({}, function(err, allArt){
+		if(err){
+			console.log(err)
+		} else {
+			res.render("index", {art: allArt});
+		}
+	})
+
 });
 
 app.get("/art", function(req, res){
