@@ -21,47 +21,7 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
-var art = [
-	{
-		author: "Levon Gurjinian",
-		title: "Woman wearing Armenian Taraz", 
-		image: "https://img.artpal.com/436321/1-19-6-27-19-33-24m.jpg",
-		description: "A woman wearing a traditional Armenian clothing Taraz"
-	},
-	{
-		author: "Levon Gurjinian",
-		title: "Henrikh Mkhitaryan", 
-		image: "https://img.artpal.com/436321/4-19-6-28-18-2-17m.jpg",
-		description: "Legendary Armenian soccer player Henrikh Mkhitaryan"
-	},
-	{
-		author: "Levon Gurjinian",
-		title: "Beyonce", 
-		image: "https://img.artpal.com/436321/2-19-6-27-19-45-19m.jpg",
-		description: "Just beyonce"
-	},
-		{
-		author: "Levon Gurjinian",
-		title: "Woman wearing Armenian Taraz", 
-		image: "https://img.artpal.com/436321/1-19-6-27-19-33-24m.jpg",
-		description: "A woman wearing a traditional Armenian clothing Taraz"
-	},
-	{
-		author: "Levon Gurjinian",
-		title: "Henrikh Mkhitaryan", 
-		image: "https://img.artpal.com/436321/4-19-6-28-18-2-17m.jpg",
-		description: "Legendary Armenian soccer player Henrikh Mkhitaryan"
-	},
-	{
-		author: "Levon Gurjinian",
-		title: "African Woman", 
-		image: "https://img.artpal.com/436321/3-49-44t.jpg",
-		description: "A profile painting of an African woman"
-	}
-];
-
-
-
+//index route
 app.get("/", function(req, res){
 	Art.find({}, function(err, allArt){
 		if(err){
@@ -100,9 +60,16 @@ app.post("/art", function(req, res){
 	})	
 });
 
-//Show request
+//Show route
 app.get("/art/:id", function(req, res){
-	res.render("art_page")
+	Art.findById(req.params.id).exec(function(err, foundArt){
+		if(err){
+			console.log(err);
+		} else {
+			//render "show" template with that campground
+			res.render("art_page", {art:foundArt});
+		}
+	});
 });
 
 app.listen(3000, function(){
