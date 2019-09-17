@@ -1,10 +1,8 @@
 <% include partials/header %>
 
-
-
 <div class="container-fluid text-align-center">
 	<div class="masonryholder">
-		<% art.forEach(function(theArt){ %>
+		<% art.slice().reverse().forEach(function(theArt){ %>
 		<div class="masonryblocks">
 			  <img src="<%= theArt.image %>" class="card-img-top tile-img" alt="...">
 		</div>
