@@ -71,4 +71,15 @@ router.put("/art/:id", function(req, res){
 	})
 });
 
+//Destroy route
+router.delete("/art/:id", function(req, res){
+	Art.findByIdAndRemove(req.params.id, function(err){
+		if(err){
+			console.log(err)
+		} else {
+			res.redirect("/")
+		}
+	})
+})
+
 module.exports = router;
