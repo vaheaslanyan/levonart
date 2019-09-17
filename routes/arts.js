@@ -1,12 +1,17 @@
 var express 		= require("express"),
-	router 			= require("router"),
-	Art 			= require("../models/art"),
-	methodOverride 	= require("method-override");
-
+	router 			= express.Router(),
+	Art 			= require("../models/art");
 
 //index route
 router.get("/art", function(req, res){
-	res.redirect("/");
+	Art.find({}, function(err, allArt){
+		if(err){
+			console.log(err)
+		} else {
+			res.render("index", {art: allArt});
+		}
+	})
+
 });
 
 //New route
@@ -56,6 +61,14 @@ router.get("/art/:id/edit", function(req, res){
 });
 
 //Update route
-router.put("/art/:id")
+router.put("/art/:id", function(req, res){
+	Art.findByIdAndUpdate(req.params.id, req.body.art, function(err, updatedArt){
+		if(err){
+			console.log(err);
+		} else {
+			res.redirect("/art/" + req.params.id)
+		}
+	})
+});
 
 module.exports = router;

@@ -4,7 +4,7 @@
 	<div clas="row">
 		<h1 id="add-header">Edit "<%= art.title %>"</h1>
 			<div id="add-form">
-				<form action="/art/<%= art._id %>" method="POST">
+				<form action="/art/<%= art._id %>?_method=PUT" method="POST">
 					<div class="form-group">
 						<input class="form-control" type="text" name="title" value="<%= art.title %>">
 					</div>
