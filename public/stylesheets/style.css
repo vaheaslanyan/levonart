@@ -2,6 +2,21 @@ body {
 	background: #fff;
 }
 
+.artCard {
+	width: 100%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+	margin-top: 3rem;
+}
+
+.artCard .btn {
+	float: right;
+	display: inline-block;
+}
+
+.navbar .social {
+	float: right;
+}
+
 #label {
 	background: #fff8ed;
 	text-align: center;
