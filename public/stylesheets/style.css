@@ -13,8 +13,8 @@ body {
 	display: inline-block;
 }
 
-.navbar .social {
-	float: right;
+#gallery {
+	margin: 2rem 0.5rem;
 }
 
 #label {
