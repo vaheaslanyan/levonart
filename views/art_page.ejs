@@ -1,14 +1,15 @@
 <% include partials/header %>
 
-<div class="container">
-<div class="card artCard">
-  <img src="<%= art.image %>" class="card-img-top" alt="<%= art.description %>">
-  <div class="card-body">
-	<h5 class="card-title"><strong><%= art.title %></strong></h5>
-    <p class="card-text"><%= art.description %></p>
-    <a href="<%= art.artUrl %>" target="_blank" class="btn btn-primary">Buy</a>
-  </div>
-</div>
+<div class="container text-center">
+	<div class="card artCard">
+	  <img src="<%= art.image %>" class="card-img-top" alt="<%= art.description %>">
+	  <div class="card-body">
+		<h5 class="card-title"><strong><%= art.title %></strong></h5>
+		<p class="card-text"><%= art.description %></p>
+		<a id="buyBtn" href="<%= art.artUrl %>" target="_blank" class="btn btn-outline-success btn-sm">Buy</a>
+		<a id="backBtn" href="/art"><button type="button" class="btn btn-outline-info btn-sm">Gallery</button></a>
+	  </div>
+	</div>
 </div>
 
 
