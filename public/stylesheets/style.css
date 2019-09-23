@@ -17,14 +17,26 @@ body {
 	margin: 3rem 0;
 }
 
-#buy-btn {
+#card-buttons-right {
+	font-size: 0.8rem;
 	float: right;
 	display: inline-block;
 }
 
-#back-btn {
+#buy-original {
+	font-weight: 700;
+	color: #464866;
+}
+
+#buy-original:hover {
+	text-decoration: none;
+	color: #28a745;
+}
+
+.card-buttons-left {
 	float: left;
 	display: inline-block;
+	padding: 2px;
 }
 
 #gallery {
@@ -33,7 +45,8 @@ body {
 
 h3 {
 	text-transform: uppercase;
-	letter-spacing: 1.2rem;
+	letter-spacing: 1rem;
+	text-indent: 1rem; /* fixes the issue with spaced text not centering properly*/
 	text-align: center;
 }
 
@@ -78,6 +91,9 @@ h3 {
 
 #nav-social li {
 	margin: 0 0.4rem;
+}
+
+#nav-devider {
 }
 
 /* footer */
@@ -167,6 +183,10 @@ hr {
 	.masonryholder {
 		column-count:3;
 	}
+	
+	#nav-devider {
+		display: none;
+	}
 }
 
 @media screen and (min-width: 1200x){
@@ -186,7 +206,7 @@ hr {
 }
 
 #add-form {
-	width: 30%;
+	max-width: 400px;
 	margin: 25px auto;
 	align-content: center;
 }

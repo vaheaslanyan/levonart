@@ -34,10 +34,6 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 
-//using routes
-app.use(artsRoutes);
-app.use(indexRoutes);
-
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({
 	secret: "If you want it you can get it, flow tighter than 4 fat bitches sitting in a civic!",
@@ -56,6 +52,10 @@ app.use(function(req, res, next){
 	res.locals.currentUser = req.user;
 	next();
 });
+
+//using routes
+app.use(artsRoutes);
+app.use(indexRoutes);
 
 app.listen(3000, function(){
 	console.log("Server listening on port 3000")

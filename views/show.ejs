@@ -1,0 +1,27 @@
+<% include partials/header %>
+
+<div class="container text-center">
+	<div class="card art-card">
+	  <img src="<%= art.image %>" class="card-img-top" alt="<%= art.description %>">
+	  <div class="card-body">
+		<h5 class="card-title"><strong><%= art.title %></strong></h5>
+		<p class="card-text"><%= art.description %></p>
+		<p id="card-buttons-right">
+			<a id="buy-original" href="/contact" target="_blank">Buy original</a> or 
+			<a href="<%= art.artUrl %>" target="_blank" class="btn btn-outline-success btn-sm">Buy a Print</a>
+		</p>
+		<div>
+		<a class="card-buttons-left" href="/art"><button type="button" class="btn btn-outline-info btn-sm">Gallery</button></a>
+		<% if(currentUser){ %>
+		  <a class="card-buttons" href="/art/<%= art._id %>/edit"><button type="button" class="btn btn-warning btn-sm">Edit</button></a>
+		  <form class="card-buttons" action="/art/<%= art._id %>?_method=DELETE" method="POST"> 
+			  <button type="button" class="btn btn-danger btn-sm">Delete</button>
+		  </form>
+		<% } %>
+		</div>
+	  </div>
+	</div>
+</div>
+
+
+<% include partials/footer %>

@@ -45,7 +45,7 @@ router.get("/art/:id", function(req, res){
 			console.log(err);
 		} else {
 			//render "show" template with that campground
-			res.render("art_page", {art:foundArt});
+			res.render("show", {art:foundArt});
 		}
 	});
 });
