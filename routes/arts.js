@@ -1,6 +1,7 @@
 var express 		= require("express"),
 	router 			= express.Router(),
-	Art 			= require("../models/art");
+	Art 			= require("../models/art"),
+	middleware		= require("../middleware/index.js");
 
 //index route
 router.get("/art", function(req, res){
@@ -15,12 +16,12 @@ router.get("/art", function(req, res){
 });
 
 //New route
-router.get("/art/new", function(req, res){
+router.get("/art/new", middleware.isLoggedIn, function(req, res){
 	res.render("new");
 });
 
 //Create route
-router.post("/art", function(req, res){
+router.post("/art", middleware.isLoggedIn, function(req, res){
 	var title = req.body.title;
 	var image = req.body.image;
 	var description = req.body.description;
@@ -50,7 +51,7 @@ router.get("/art/:id", function(req, res){
 });
 
 //Edit route
-router.get("/art/:id/edit", function(req, res){
+router.get("/art/:id/edit", middleware.isLoggedIn, function(req, res){
 	Art.findById(req.params.id, function(err, foundArt){
 		if(err){
 			console.log(err);
@@ -61,7 +62,7 @@ router.get("/art/:id/edit", function(req, res){
 });
 
 //Update route
-router.put("/art/:id", function(req, res){
+router.put("/art/:id", middleware.isLoggedIn, function(req, res){
 	Art.findByIdAndUpdate(req.params.id, req.body.art, function(err, updatedArt){
 		if(err){
 			console.log(err);
@@ -72,7 +73,7 @@ router.put("/art/:id", function(req, res){
 });
 
 //Destroy route
-router.delete("/art/:id", function(req, res){
+router.delete("/art/:id", middleware.isLoggedIn, function(req, res){
 	Art.findByIdAndRemove(req.params.id, function(err){
 		if(err){
 			console.log(err)

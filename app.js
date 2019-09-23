@@ -3,9 +3,13 @@ var express 		= require("express"),
 	mongoose 		= require("mongoose"),
 	methodOverride 	= require("method-override"),
 	bodyParser 		= require("body-parser"),
-	router			= require("router");
+	router			= require("router"),
+	passport		= require("passport"),
+	LocalStrategy 	= require("passport-local");
+	
 
-var Art 			= require("./models/art");
+var Art 			= require("./models/art"),
+	User 			= require("./models/user");
 
 //require routes
 var artsRoutes 		= require("./routes/arts"),
@@ -34,6 +38,24 @@ app.use(methodOverride("_method"));
 app.use(artsRoutes);
 app.use(indexRoutes);
 
+//PASSPORT CONFIGURATION
+app.use(require("express-session")({
+	secret: "If you want it you can get it, flow tighter than 4 fat bitches sitting in a civic!",
+	resave: false,
+	saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+//passing the currentUser info
+app.use(function(req, res, next){
+	res.locals.currentUser = req.user;
+	next();
+});
 
 app.listen(3000, function(){
 	console.log("Server listening on port 3000")
