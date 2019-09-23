@@ -3,7 +3,7 @@ var express 		= require("express"),
 	passport		= require("passport");
 
 var User			= require("../models/user");
-	
+
 //index route
 router.get("/", function(req, res){
 	res.redirect("/art");
