@@ -59,9 +59,6 @@ app.use(function(req, res, next){
 	next();
 });
 
-
-	var newUser = new User({username: "Levon"});
-	User.register(newUser, "Melod0374arM")
 //using routes
 app.use(artsRoutes);
 app.use(indexRoutes);
