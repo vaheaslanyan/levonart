@@ -14,13 +14,19 @@ var Art 			= require("./models/art"),
 //require routes
 var artsRoutes 		= require("./routes/arts"),
 	indexRoutes 	= require("./routes/index");
-	
-	
+
+//variables for app.listen
+const port = process.env.PORT || 3000;
+const ip = process.env.IP || "127.0.0.1";
+
+//an enviromental url for the db and backup for our mongodb url in case the enviromental variable breaks for some reason
+var url = process.env.DATABASEURL || "mongodb://localhost/levon_art";
+
 //mongoose setup	
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-mongoose.connect("mongodb://localhost/levon_art", {
+mongoose.connect(url, {
 	useNewUrlParser: true,
 	useCreateIndex: true
 }).then(() => {
@@ -57,6 +63,6 @@ app.use(function(req, res, next){
 app.use(artsRoutes);
 app.use(indexRoutes);
 
-app.listen(3000, function(){
-	console.log("Server listening on port 3000")
-})
+app.listen(port, function(){
+    console.log("Server has started .... at port "+ port+" ip: "+ip);
+});
