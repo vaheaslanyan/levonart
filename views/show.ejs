@@ -13,8 +13,8 @@
 		<div>
 		<a class="card-buttons-left" href="/art"><button type="button" class="btn btn-outline-info btn-sm">Gallery</button></a>
 		<% if(currentUser){ %>
-		  <a class="card-buttons" href="/art/<%= art._id %>/edit"><button type="button" class="btn btn-warning btn-sm">Edit</button></a>
-		  <form class="card-buttons" action="/art/<%= art._id %>?_method=DELETE" method="POST"> 
+		  <a class="card-buttons-left" href="/art/<%= art._id %>/edit"><button type="button" class="btn btn-warning btn-sm">Edit</button></a>
+		  <form class="card-buttons-left" action="/art/<%= art._id %>?_method=DELETE" method="POST"> 
 			  <button type="button" class="btn btn-danger btn-sm">Delete</button>
 		  </form>
 		<% } %>
