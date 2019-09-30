@@ -53,12 +53,19 @@ h3 {
 
 /* navbar */
 
+#logo {
+	width: 5rem;
+	height: 3rem;
+	display: inline-block;
+}
+
 .navbar-light .navbar-nav .nav-link {
     color: #464866;
 }
 
 .navbar-light .navbar-brand {
     color: #464866;
+	width: 5rem;
 }
 
 .navbar-light .navbar-brand {
