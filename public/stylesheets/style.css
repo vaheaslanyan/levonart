@@ -5,6 +5,28 @@ body {
 	letter-spacing: 0.05rem;
 }
 
+#bio {
+	text-align: left;
+	margin: 2rem;
+	line-height: 2;
+	text-indent: 2rem;
+}
+
+#contact {
+	margin: 2rem;
+	line-height: 2;
+}
+
+.contact-link {
+	color:#008c28;
+	font-weight: 700;
+}
+
+.contact-link:hover {
+	color: ;
+	text-decoration: none;
+}
+
 #page-container {
 	position: relative;
 	min-height: 100vh;
