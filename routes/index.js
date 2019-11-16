@@ -6,7 +6,7 @@ var User			= require("../models/user");
 
 //index route
 router.get("/", function(req, res){
-	res.redirect("/art");
+	res.render("landing");
 });
 
 //login

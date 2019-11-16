@@ -1,0 +1,83 @@
+body {
+	background: #000;
+}
+
+#landing-header {
+	z-index: 1; /* another dimension besides x and y and this one is forward and backward meaning anything with index less will be behind this item*/
+	position: relative; /*this is needed in order to be able to use z-index, the default position is static which ignores z*/
+	text-align: center;
+	padding-top: 40vh;
+}
+
+#landing-header h1 {
+	color: white;
+}
+
+.slideshow {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	list-style: none; /*taking off the bullet points from li's */
+	margin: 0;
+	padding: 0;
+}
+
+.slideshow li {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-size: cover; /* allows the images to take up the whole screen */
+	background-position: 50% 50%; /* centering the images */
+	background-repeat: no-repeat;
+	opacity: 0;
+	z-index: 0;
+	animation: imageAnimation 50s linear infinite; /* linear means same speed from begining to end, infinite refers to looping */
+}
+
+/* adding background immages */
+.slideshow li:nth-child(1) { 
+  background-image: url(https://res.cloudinary.com/hsmrn1b8m/image/upload/v1573421644/LevonArt%20Art/Hivand_yxu6he.png) 
+}
+.slideshow li:nth-child(2) { 
+  background-image: url(https://res.cloudinary.com/hsmrn1b8m/image/upload/v1573421647/LevonArt%20Art/Ethno1_lrfg8f.png);
+  animation-delay: 10s; 
+}
+.slideshow li:nth-child(3) { 
+  background-image: url(https://res.cloudinary.com/hsmrn1b8m/image/upload/v1573421570/LevonArt%20Art/woman7_yoneua.png);
+  animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+  background-image: url(https://res.cloudinary.com/hsmrn1b8m/image/upload/v1573421538/LevonArt%20Art/Woman_21_vzqhk8.png);
+  animation-delay: 30s; 
+}
+.slideshow li:nth-child(5) { 
+  background-image: url(https://res.cloudinary.com/hsmrn1b8m/image/upload/v1573421586/LevonArt%20Art/Warrior_k9mmoa.png);
+  animation-delay: 40s; 
+}
+
+@keyframes imageAnimation { 
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
+}
+
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}
