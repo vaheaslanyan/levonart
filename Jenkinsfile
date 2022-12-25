@@ -52,25 +52,26 @@ pipeline {
                 }
             }
         }
-        stage('test') {
-            when {
-                expression {
-                    return env.GIT_BRANCH != 'origin/develop'
-                }
-            }
-            steps {
-                script {
-                    try {
-                        sh 'npm install'
-                        sh 'npm run test'
-                        updateGitlabCommitStatus name: 'Test', state: 'success'
-                    } catch (exec) {
-                        updateGitlabCommitStatus name: 'Test', state: 'failed'
-                        throw exec
-                    }
-                }
-            }
-        }
+        // stage('test') {
+        //     when {
+        //         expression {
+        //             return env.GIT_BRANCH != 'origin/develop'
+        //         }
+        //     }
+        //     steps {
+        //         script {
+        //             try {
+        //                 sh 'npm install'
+        //                 sh 'npm run test'
+        //                 updateGitlabCommitStatus name: 'Test', state: 'success'
+        //             } catch (exec) {
+        //                 updateGitlabCommitStatus name: 'Test', state: 'failed'
+        //                 throw exec
+        //             }
+        //         }
+        //     }
+        // }
+        
         // stage('sonar & QA') {
         //     when {
         //         expression {
