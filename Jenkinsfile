@@ -20,11 +20,11 @@ pipeline {
     
     stages  {
         stage('check-for-rebase-before') {
-            when {
-                expression {
-                    return env.GIT_BRANCH != 'origin/master'
-                }
-            }
+            // when {
+            //     expression {
+            //         return env.GIT_BRANCH != 'origin/master'
+            //     }
+            // }
             steps {
                 script {
                     try {
