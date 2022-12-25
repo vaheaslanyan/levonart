@@ -1,7 +1,7 @@
 // updateGitlabCommitStatus state: 'pending'
 pipeline {
     // Makes our pipeline run on any node
-    // agent any
+    agent any
     // agent {
     //     label 'master'
     // }
