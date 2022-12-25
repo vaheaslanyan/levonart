@@ -19,25 +19,25 @@ pipeline {
     }
     
     stages  {
-        stage('check-for-rebase-before') {
-            // when {
-            //     expression {
-            //         return env.GIT_BRANCH != 'origin/master'
-            //     }
-            // }
-            // steps {
-            //     script {
-            //         try {
-            //             sh 'git merge-base --is-ancestor origin/master origin/${githubSourceBranch}'
-            //             updateGitlabCommitStatus name: 'Check-For-Rebase-Before', state: 'success'
-            //         } catch (exec) {
-            //             updateGitlabCommitStatus name: 'Check-For-Rebase-Before', state: 'failed'
-            //             println "You're behind on commits, make sure to pull"
-            //             throw exec
-            //         }
-            //     }
-            // }
-        }
+        // stage('check-for-rebase-before') {
+        //     when {
+        //         expression {
+        //             return env.GIT_BRANCH != 'origin/master'
+        //         }
+        //     }
+        //     steps {
+        //         script {
+        //             try {
+        //                 sh 'git merge-base --is-ancestor origin/master origin/${githubSourceBranch}'
+        //                 updateGitlabCommitStatus name: 'Check-For-Rebase-Before', state: 'success'
+        //             } catch (exec) {
+        //                 updateGitlabCommitStatus name: 'Check-For-Rebase-Before', state: 'failed'
+        //                 println "You're behind on commits, make sure to pull"
+        //                 throw exec
+        //             }
+        //         }
+        //     }
+        // }
         stage('Build') {
             steps {
                 script {
