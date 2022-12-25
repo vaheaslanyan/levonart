@@ -2,9 +2,9 @@
 pipeline {
     // Makes our pipeline run on any node
     // agent any
-    agent {
-        label 'master'
-    }
+    // agent {
+    //     label 'master'
+    // }
     // options {
     //     gitLabConnection('gitlab')
     // }
