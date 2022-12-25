@@ -42,6 +42,7 @@ pipeline {
             steps {
                 script {
                     try {
+                        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/vaheaslanyan/levonart']]])
                         sh 'npm install'
                         sh 'npm run build'
                         // updateGitlabCommitStatus name: 'Build', state: 'success'
@@ -71,7 +72,7 @@ pipeline {
         //         }
         //     }
         // }
-        
+
         // stage('sonar & QA') {
         //     when {
         //         expression {
