@@ -160,5 +160,5 @@ pipeline {
     //     failure {
     //         updateGitlabCommitStatus state: 'failed'
     //     }
-    // }
+    }
 }
