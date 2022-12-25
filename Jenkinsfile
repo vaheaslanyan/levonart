@@ -44,7 +44,7 @@ pipeline {
                     try {
                         checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/vaheaslanyan/levonart']]])
                         sh 'npm install'
-                        sh '<<Build Command>>'
+                        sh 'npm start'
                         // updateGitlabCommitStatus name: 'Build', state: 'success'
                     } catch (exec) {
                         // updateGitlabCommitStatus name: 'Build', state: 'failed'
