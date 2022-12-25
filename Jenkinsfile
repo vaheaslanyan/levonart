@@ -15,7 +15,7 @@ pipeline {
     //     CI = 'true'
     // }
     tools {
-        nodejs
+        nodejs:latest
     }
     
     stages  {
