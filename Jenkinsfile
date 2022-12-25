@@ -14,6 +14,9 @@ pipeline {
     //     KUBECONFIG = '/root/.kube/kubeconfig.yaml'
     //     CI = 'true'
     // }
+    tools {
+        nodejs
+    }
     
     stages  {
         stage('check-for-rebase-before') {
