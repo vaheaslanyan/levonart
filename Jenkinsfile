@@ -44,9 +44,9 @@ pipeline {
                     try {
                         sh 'npm install'
                         sh 'npm run build'
-                        updateGitlabCommitStatus name: 'Build', state: 'success'
+                        // updateGitlabCommitStatus name: 'Build', state: 'success'
                     } catch (exec) {
-                        updateGitlabCommitStatus name: 'Build', state: 'failed'
+                        // updateGitlabCommitStatus name: 'Build', state: 'failed'
                         throw exec
                     }
                 }
