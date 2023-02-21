@@ -3,20 +3,25 @@
 					Follow me on social media
 				</div>
 				<hr>
-				<a class="socialFooter" target="_blank" href="https://www.facebook.com/Levon-Gurjinyan-2231524240447941/">
-					<i class="fab fa-facebook-square"></i>
-				</a>
-				<a class="socialFooter" target="_blank" href="https://instagram.com/kingdom.g.l?igshid=MDM4ZDc5MmU=">
-					<i class="fab fa-instagram"></i>
-				</a>
-				<a class="socialFooter" href="mailto:levongur@gmail.com">
-					<i class="fas fa-envelope"></i>
-				</a>
-				<% if(!currentUser){ %>
 				<div>
-					<a href="/login" id="sign-in">Sign In</a>
+					<span id="footerSocialSpan">
+						<a class="socialFooter" target="_blank" href="https://www.facebook.com/Levon-Gurjinyan-2231524240447941/">
+							<i class="fab fa-facebook-square"></i>
+						</a>
+						<a class="socialFooter" target="_blank" href="https://instagram.com/kingdom.g.l?igshid=MDM4ZDc5MmU=">
+							<i class="fab fa-instagram"></i>
+						</a>
+						<a class="socialFooter" href="mailto:levongur@gmail.com">
+							<i class="fas fa-envelope"></i>
+						</a>
+					</span>
 				</div>
-				<% } %>
+				<div id="signInDiv">
+					<% if(!currentUser){ %>
+							<a href="/login">Sign in</a>
+					<% } %>
+				</div>
+				
 			</footer>
 </div>
 		<script src="https://kit.fontawesome.com/e042c340d4.js" crossorigin="anonymous"></script>
